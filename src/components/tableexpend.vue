@@ -3,7 +3,33 @@
     <el-table :data="tableData" style="width: 100%" @expand-change="expandchange" stripe>
       <el-table-column type="expand">
         <template slot-scope="props">
-          <el-table :data="props.row.list">
+          <el-table :data="props.row.list" stripe @selection-change="handleSelectionChange">
+            <el-table-column type="selection"></el-table-column>
+            <el-table-column label="商品 ID">
+              <template slot-scope="props">
+                <span>{{ props.row.id}}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="商品名称">
+              <template slot-scope="props">
+                <span>{{ props.row.name}}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="商品 ID">
+              <template slot-scope="props">
+                <span>{{ props.row.id}}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="商品 ID">
+              <template slot-scope="props">
+                <span>{{ props.row.id}}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="商品 ID">
+              <template slot-scope="props">
+                <span>{{ props.row.id}}</span>
+              </template>
+            </el-table-column>
             <el-table-column label="商品 ID">
               <template slot-scope="props">
                 <span>{{ props.row.id}}</span>
@@ -90,7 +116,7 @@ export default {
       }],
       tableData1: [{
         id: '12987122',
-        name: '好滋好味鸡蛋仔',
+        name: '好滋好味鸡蛋仔1',
         category: '江浙小吃、小吃零食',
         desc: '荷兰优质淡奶，奶香浓而不腻',
         address: '上海市普陀区真北路',
@@ -98,7 +124,7 @@ export default {
         shopId: '10333'
       }, {
         id: '12987123',
-        name: '好滋好味鸡蛋仔',
+        name: '好滋好味鸡蛋仔1',
         category: '江浙小吃、小吃零食',
         desc: '荷兰优质淡奶，奶香浓而不腻',
         address: '上海市普陀区真北路',
@@ -106,7 +132,7 @@ export default {
         shopId: '10333'
       }, {
         id: '12987125',
-        name: '好滋好味鸡蛋仔',
+        name: '好滋好味鸡蛋仔1',
         category: '江浙小吃、小吃零食',
         desc: '荷兰优质淡奶，奶香浓而不腻',
         address: '上海市普陀区真北路',
@@ -114,7 +140,7 @@ export default {
         shopId: '10333'
       }, {
         id: '12987126',
-        name: '好滋好味鸡蛋仔',
+        name: '好滋好味鸡蛋仔1',
         category: '江浙小吃、小吃零食',
         desc: '荷兰优质淡奶，奶香浓而不腻',
         address: '上海市普陀区真北路',
