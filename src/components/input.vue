@@ -3,6 +3,13 @@
     <el-button @click="showB" type="success">test</el-button>
     <input v-model="message" placeholder="edit me" />
     <p>Message is: {{ message }}</p>
+    <el-date-picker
+      v-model="value1"
+      value-format="yyyy-MM-dd HH:mm:ss"
+      type="datetime"
+      placeholder="选择日期时间"
+    ></el-date-picker>
+    <p>Date is: {{ value1 }}</p>
   </div>
 </template>
 
@@ -12,7 +19,8 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      message: ""
+      message: "",
+      value1: ''
     }
   },
   methods: {
