@@ -3,7 +3,7 @@
     <el-button @click="showB" type="success">test</el-button>
     <input v-model="message" placeholder="edit me" />
     <p>Message is: {{ message }}</p>
-    <el-form :model="ruleForm">
+    <el-form :model="ruleForm" :inline="true" :rules="rules" label-width="150px">
       <el-row>
         <el-form-item label="时间" prop="testdate">
           <el-date-picker
@@ -11,6 +11,8 @@
             type="datetime"
             value-format="yyyy-MM-dd HH:mm:ss"
             format="yyyy-MM-dd HH:mm:ss"
+            style="width: 200px"
+            placeholder="请选择时间"
           ></el-date-picker>
         </el-form-item>
       </el-row>
@@ -35,6 +37,15 @@ export default {
       ruleForm: {
         testdate: "",
         value: ""
+      },
+      rules: {
+        testdate: [
+          {
+            required: true,
+            message: "请输入",
+            trigger: ["blur"]
+          }
+        ]
       }
     }
   },
