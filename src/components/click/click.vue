@@ -48,6 +48,9 @@
       </el-col>
     </el-row>
     <el-alert title="错误提示的文案" type="error"></el-alert>
+    <span>{{ add(null,4,2,3) }}</span>
+    <span>{{ add.call(null,4,2,3) }}</span>
+    <span>{{ add.apply(null,[4,2,3]) }}</span>
   </div>
 </template>
 
@@ -79,6 +82,13 @@ export default {
       // 现在我们可以访问原生事件对象
       if (event) event.preventDefault()
       alert(message)
+    },
+    add () {
+      var sum = 0;
+      for (let i = 0; i < arguments.length; i++) {
+        sum += arguments[i];
+      }
+      return sum;
     }
   }
 }
