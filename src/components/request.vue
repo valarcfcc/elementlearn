@@ -35,9 +35,7 @@ export default {
     doPost () {
       this.$axios({
         url: '/api/user',
-        data: {
-          user: JSON.stringify(this.user)
-        },
+        data: JSON.stringify(this.user),
         method: 'post',
         headers: {
           'Content-Type': 'application/json;charset=UTF-8'
@@ -53,12 +51,10 @@ export default {
     doPostString () {
       this.$axios({
         url: '/api/posttest',
-        data: {
-          name: JSON.stringify(this.user.name)
-        },
+        data: JSON.stringify(this.user.name),
         method: 'post',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json;charset=UTF-8'
         },
       })
         .then(function (response) {
