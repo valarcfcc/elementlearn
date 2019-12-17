@@ -11,9 +11,12 @@ import 'iview/dist/styles/iview.css'
 import {
   DatePicker
 } from 'iview'
+import apiConfig from '../config/index'
 // Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.component('DatePicker', DatePicker)
+Vue.use(axios)
+Vue.prototype.$axios = axios
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
