@@ -2,35 +2,29 @@
   <div class="hello">
     <el-button @click="doPost()" type="success">test</el-button>
     <el-button @click="doPostString()" type="success">字符串</el-button>
+    <el-button @click="show()" type="success">调用父组件方法</el-button>
+    <span>{{ this.message }}</span>
   </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
+  props: {
+    user: Object
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      user: {
-        name: "lim59"
-      },
-      message: "",
-      ruleForm: {
-        testdate: "",
-        value: ""
-      },
-      rules: {
-        testdate: [{
-          required: true,
-          message: "请输入",
-          trigger: ["blur"]
-        }]
-      }
+      // user: {
+      //   name: "lim59"
+      // },
     }
   },
   methods: {
-    showB () {
-      alert("hi");
+    show () {
+      console.log(123);
+      this.$emit('show');
     },
     doPost () {
       this.$axios({
@@ -42,6 +36,8 @@ export default {
         },
       })
         .then(function (response) {
+
+          alert(response.data);
           console.log(response);
         })
         .catch(function (error) {

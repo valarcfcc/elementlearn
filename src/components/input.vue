@@ -1,9 +1,25 @@
 <template>
   <div class="hello">
-    <el-button @click="showB" type="success">test</el-button>
+    <!-- <el-button @click="showB" type="success">test</el-button> -->
+    <span>文本</span>
     <input v-model="message" placeholder="edit me" />
     <p>Message is: {{ message }}</p>
-    <el-col span="12">
+    <span>Multiline message is:</span>
+    <p style="white-space: pre-line;">{{ message }}</p>
+    <br />
+    <textarea v-model="message" placeholder="add multiple lines"></textarea>
+
+    <div>
+      <input type="checkbox" id="jack" value="Jack" v-model="checkedNames" />
+      <label for="jack">Jack</label>
+      <input type="checkbox" id="john" value="John" v-model="checkedNames" />
+      <label for="john">John</label>
+      <input type="checkbox" id="mike" value="Mike" v-model="checkedNames" />
+      <label for="mike">Mike</label>
+      <br />
+      <span>Checked names: {{ checkedNames }}</span>
+    </div>
+    <!-- <el-col span="12">
       <DatePicker type="date" placeholder="Select date" style="width: 200px"></DatePicker>
     </el-col>
     <el-col span="12">
@@ -13,7 +29,7 @@
         placeholder="Select date"
         style="width: 200px"
       ></DatePicker>
-    </el-col>
+    </el-col>-->
     <el-form :model="ruleForm" :inline="true" :rules="rules" label-width="150px">
       <el-row>
         <el-form-item label="时间" prop="testdate">
@@ -35,16 +51,23 @@
       placeholder="选择日期时间"
     ></el-date-picker>
     <p>Date is: {{ ruleForm.testdate }}</p>
-    <el-button type="success" @click="isNotEmpty()"></el-button>
+    <!-- <el-button type="success" @click="isNotEmpty()"></el-button> -->
+
+    <request @show="change" :user="user"></request>
   </div>
 </template>
 
 <script>
+import Request from "./request.vue"
 export default {
   name: 'HelloWorld',
   data () {
     return {
+      user: {
+        name: "lim59"
+      },
       msg: 'Welcome to Your Vue.js App',
+      checkedNames: [],
       message: "",
       ruleForm: {
         testdate: "",
@@ -59,6 +82,9 @@ export default {
       }
     }
   },
+  components: {
+    Request
+  },
   methods: {
     showB () {
       alert("hi");
@@ -66,6 +92,11 @@ export default {
     isNotEmpty (obj) {
       obj = ses;
       alert(this.isNotEmptycomput(obj));
+    },
+    change () {
+      alert("lim59 理想一哥！");
+      this.user.name = "lim59 理想一哥！"
+
     },
 
     isNotEmptycomput (obj) {
