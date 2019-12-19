@@ -47,7 +47,7 @@ export default {
     doPostString () {
       this.$axios({
         url: '/api/posttest',
-        data: JSON.stringify(this.user.name),
+        data: this.user.name,
         method: 'post',
         headers: {
           'Content-Type': 'application/json;charset=UTF-8'
