@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import routes from "./element"
 import click from "./click"
 import input from "./input"
+import watch from "./watch"
 Vue.use(Router)
 
 export default new Router({
@@ -11,6 +12,7 @@ export default new Router({
     ...routes,
     ...click,
     ...input,
+    ...watch,
     {
       path: '/',
       name: 'HelloWorld',
